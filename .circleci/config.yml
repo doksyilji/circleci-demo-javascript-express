@@ -5,7 +5,7 @@ command:
     parameters:
       value:
         type: string
-        default: "$CIRCLE_WORKFLOW_ID"
+        default: "Could not get ENV variable"
     steps:
       - run: echo <<parameters.value>>
 
@@ -21,7 +21,8 @@ jobs:
     docker:
       - image: circleci/node:10.16.3
     steps:
-      print_pipeline_id
+      - print_pipeline_id:
+          value: $CIRCLE_WORKFLOW_ID
   build:
     working_directory: ~/mern-starter
     docker:
