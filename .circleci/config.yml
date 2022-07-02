@@ -13,7 +13,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - print_pipeline_id
+      - print_pipeline
       - build
 
 jobs:
